@@ -1,16 +1,24 @@
 # Run Without Installing
 
 ## Run script1
-nix run github:yourusername/your-repo-name#script1
+```
+nix run github:ilioscio/jsflake#script1
+```
 
 ## Run script2
-nix run github:yourusername/your-repo-name#script2
+```
+nix run github:ilioscio/jsflake#script2
+```
 
 ## Run using a specific commit
-nix run github:yourusername/your-repo-name/commit-hash#script1
+```
+nix run github:ilioscio/jsflake/commit-hash#script1
+```
 
 ## Run using a tag
-nix run github:yourusername/your-repo-name/v1.0.0#script1
+```
+nix run github:ilioscio/jsflake/v1.0.0#script1
+```
 
 # Installation
 
@@ -43,8 +51,12 @@ nix run github:yourusername/your-repo-name/v1.0.0#script1
 # For Testing or Temporary Installation
 
 ## Install a single script
+```
 nix profile install github:ilioscio/jsflake#script1
+```
 
 ## Or install both
+```
 nix profile install github:ilioscio/jsflake#script1 github:ilioscio/jsflake#script2
+```
 
