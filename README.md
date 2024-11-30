@@ -30,27 +30,22 @@ nix run github:ilioscio/jsflake/v1.0.0#script1
 
 ### Installation via configuration.nix (Standard)
 ```
+# In your configuration.nix:
 {
-  inputs.jsscripts.url = "github:ilioscio/jsflake";
-  
-  # In your configuration:
   environment.systemPackages = with pkgs; [
-    jsscripts.script1
-    jsscripts.script2
+    inputs.jsscripts.packages.${pkgs.system}.script1
+    inputs.jsscripts.packages.${pkgs.system}.script2
   ];
 }
 ```
-
-### Installation via home-manager (Alternative)
+>[!IMPORTANT]
+>You must also include the flake as an input in your flake.nix (or wherever you configure your flake inputs)
 ```
+# In your flake.nix
 {
-  inputs.jsscripts.url = "github:ilioscio/jsflake";
-  
-  # In your home.nix:
-  home.packages = with pkgs; [
-    jsscripts.script1
-    jsscripts.script2
-  ];
+  inputs = {
+    jsscripts.url = "github:ilioscic/jsflake";
+  };
 }
 ```
 
