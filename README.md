@@ -5,6 +5,9 @@ Just a collection of javascript scripts run via bun, in a nix flake so they can 
 > You must have either [Nix or NixOS](https://nixos.org/download/#download-nix) installed to run these commands.
 
 ## Run Without Installing
+>[!WARNING]
+>If you get an error about 'experimental Nix features' being disabled, append --extra-experimental-features "nix-command flakes" after nix to the commands below.
+>Eg. nix --extra-experimental-features "nix-command flakes" run github:ilioscio/jsflake#script1
 
 ### Run script1
 ```
