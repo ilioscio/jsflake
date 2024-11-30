@@ -1,6 +1,9 @@
 # Javascript script flake
 Just a collection of javascript scripts run via bun, in a nix flake so they can be invoked/installed conveniently.
 
+> [!IMPORTANT]
+> You must have either [Nix or NixOS](https://nixos.org/download/#download-nix) installed to run these commands.
+
 ## Run Without Installing
 
 ### Run script1
