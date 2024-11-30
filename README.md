@@ -26,7 +26,7 @@ nix run github:ilioscio/jsflake/commit-hash#script1
 
 ### Run using a tag
 ```
-nix run github:ilioscio/jsflake/v1.0.0#script1
+nix run github:ilioscio/jsflake/v1#script1
 ```
 
 ## Installation
