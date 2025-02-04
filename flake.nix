@@ -14,9 +14,9 @@
           pkgs = nixpkgs.legacyPackages.${system};
 
           # Copy scripts to the store
-          script1 = pkgs.runCommand "script1" {} ''
+          readable = pkgs.runCommand "readable" {} ''
             mkdir -p $out/bin
-            cp ${./scripts/script1.js} $out/bin/script1.js
+            cp ${./scripts/readable.js} $out/bin/readable.js
           '';
 
           script2 = pkgs.runCommand "script2" {} ''
@@ -24,8 +24,8 @@
             cp ${./scripts/script2.js} $out/bin/script2.js
           '';
 
-          script1-wrapped = pkgs.writeShellScriptBin "script1" ''
-            ${pkgs.bun}/bin/bun ${script1}/bin/script1.js
+          readable-wrapped = pkgs.writeShellScriptBin "readable" ''
+            ${pkgs.bun}/bin/bun ${readable}/bin/readable.js
           '';
 
           script2-wrapped = pkgs.writeShellScriptBin "script2" ''
@@ -33,22 +33,22 @@
           '';
         in
         {
-          script1 = script1-wrapped;
+          readable = readable-wrapped;
           script2 = script2-wrapped;
-          default = script1-wrapped;
+          default = readable-wrapped;
         }
       );
 
       apps = forAllSystems (system: {
-        script1 = {
+        readble = {
           type = "app";
-          program = "${self.packages.${system}.script1}/bin/script1";
+          program = "${self.packages.${system}.readble}/bin/readable";
         };
         script2 = {
           type = "app";
           program = "${self.packages.${system}.script2}/bin/script2";
         };
-        default = self.apps.${system}.script1;
+        default = self.apps.${system}.readable;
       });
     };
 }
